@@ -1,13 +1,20 @@
 package com.example.springbootsendotptwilio.controller;
 
+import com.example.springbootsendotptwilio.model.SMSSendRequest;
+import com.example.springbootsendotptwilio.service.SMSService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SMSController {
 
-    @PostMapping("/mobileNo")
-    public String sendOtp() {
-        return "Otp is sent successfully!";
+    @Autowired
+    public SMSService smsService;
+
+    @PostMapping("/processSMS")
+    public String sendOtp(@RequestBody SMSSendRequest smsSendRequest) {
+        return smsService.sendSMS(smsSendRequest.getReceiverPhoneNumber(), smsSendRequest.getMessageBody());
     }
 }
