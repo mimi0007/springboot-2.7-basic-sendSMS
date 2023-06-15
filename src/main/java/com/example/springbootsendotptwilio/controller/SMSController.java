@@ -14,7 +14,7 @@ public class SMSController {
     public SMSService smsService;
 
     @PostMapping("/processSMS")
-    public String sendOtp(@RequestBody SMSSendRequest smsSendRequest) {
-        return smsService.sendSMS(smsSendRequest.getReceiverPhoneNumber(), smsSendRequest.getMessageBody());
+    public void sendSMS(@RequestBody SMSSendRequest smsSendRequest) {
+        smsService.sendSMS(smsSendRequest);
     }
 }
