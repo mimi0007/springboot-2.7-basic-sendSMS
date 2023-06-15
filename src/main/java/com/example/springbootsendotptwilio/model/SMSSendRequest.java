@@ -1,15 +1,25 @@
 package com.example.springbootsendotptwilio.model;
 
+import lombok.NonNull;
+
 public class SMSSendRequest {
-    private String receiverPhoneNumber;
+    @NonNull
+    private String senderPhoneNumber;
+
+    @NonNull
     private String messageBody;
 
-    public String getReceiverPhoneNumber() {
-        return receiverPhoneNumber;
+    public SMSSendRequest(@NonNull String senderPhoneNumber, @NonNull String messageBody) {
+        this.senderPhoneNumber = senderPhoneNumber;
+        this.messageBody = messageBody;
     }
 
-    public void setReceiverPhoneNumber(String receiverPhoneNumber) {
-        this.receiverPhoneNumber = receiverPhoneNumber;
+    public String getSenderPhoneNumber() {
+        return senderPhoneNumber;
+    }
+
+    public void setSenderPhoneNumber(String senderPhoneNumber) {
+        this.senderPhoneNumber = senderPhoneNumber;
     }
 
     public String getMessageBody() {
