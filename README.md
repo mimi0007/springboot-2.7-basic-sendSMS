@@ -1,1 +1,1 @@
-# springboot-basic-sendOTP
+# springboot-basic-sendSMS
